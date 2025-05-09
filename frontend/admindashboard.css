@@ -1,0 +1,358 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+}
+
+/* Header (North Panel) */
+.header {
+  background-color: #2b6cb0;
+  color: white;
+  padding: 25px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.header-subtitle {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Sidebar (West Panel) */
+.sidebar {
+  width: 250px;
+  background-color: #2b6cb0;
+  color: white;
+  position: fixed;
+  top: 110px;
+  left: 10px;
+  height: calc(90vh - 60px);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 15px;
+}
+
+.sidebar-menu a {
+  display: block;
+  width: 100%;
+  background-color: #34495e;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.sidebar-menu a:hover {
+  background-color: #16a085;
+  color: #d0dfff;
+  transform: translateY(-2px);
+}
+
+.sidebar-menu a.active {
+  background-color: #1a365d;
+  color: white;
+}
+
+/* Main content */
+.dashboard-container {
+  margin-left: 270px;
+  margin-top: 100px;
+  padding: 20px;
+  width: calc(100% - 300px);
+}
+
+.dashboard-container-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(90vh - 60px);
+  max-width: 1300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 40px;
+  margin: auto;
+}
+
+.dashboard-container-box.hidden {
+  display: none;
+}
+
+/* Welcome message */
+#welcomeMessage {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.logo img {
+  width: 80%;
+  max-width: 1000px;
+  height: auto;
+}
+
+/* Sections */
+.section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #2b6cb0;
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f0f4f8;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.view-btn {
+  background-color: #4299e1;
+  color: white;
+}
+
+.remove-btn {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.submit-btn {
+  background-color: #2b6cb0;
+  color: white;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #255ea8;
+}
+
+/* Cancel Button Styling */
+#cancelEditBtn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#cancelEditBtn:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(244, 67, 54, 0.8);
+}
+
+#cancelEditBtn:hover {
+  background-color: #d32f2f;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+/* Project list */
+.project-list {
+  list-style: disc inside;
+  margin-top: 10px;
+}
+
+.project-list li {
+  margin-bottom: 8px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* Courses Section Buttons */
+.course-btn {
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 10px 8px 0 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.course-add-btn {
+  background-color: #38a169;
+  color: white;
+}
+
+.course-add-btn:hover {
+  background-color: #2f855a;
+}
+
+.course-edit-btn {
+  background-color: #3182ce;
+  color: white;
+}
+
+.course-edit-btn:hover {
+  background-color: #2b6cb0;
+}
+
+.course-delete-btn {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.course-delete-btn:hover {
+  background-color: #c53030;
+}
+
+/* Course Form */
+.course-form {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-form h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #2b6cb0;
+}
+
+/* Success/Error Message */
+#courseAddMessage {
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Profile Photo Centering and Border */
+#adminPhotoPreview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  border: 3px solid #4c61af; /* Green border */
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .dashboard-container {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    padding-top: 20px;
+  }
+}

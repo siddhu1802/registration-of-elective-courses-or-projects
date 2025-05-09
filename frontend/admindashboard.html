@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admindashboard.css" />
+</head>
+<body> 
+
+  <!-- North Panel: Header -->
+  <header class="header">
+    <h1 class="header-title">Admin Dashboard</h1>
+  </header>
+
+  <!-- Layout starts after the header -->
+  <div class="layout-container">
+
+    <!-- Flex Wrapper for Sidebar and Main Content -->
+    <div class="main-content-wrapper">
+
+      <!-- West Panel: Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title" style="color: white; text-align: center; margin-bottom: 20px;">Admin Menu</h2>
+        <nav class="sidebar-nav">
+          <ul class="sidebar-menu">
+            <li><a href="#" id="dashboardLink" class="active">Dashboard</a></li>
+            <li><a href="#" id="profileLink">Profile</a></li>
+            <li><a href="#" id="studentManagementLink">Manage Students</a></li>
+            <li><a href="#" id="facultyManagementLink">Manage Faculty</a></li>
+            <li><a href="#" id="courseLink">Courses</a></li>
+            <li><a href="#" id="projectsLink">Projects</a></li>
+            <li><a href="#" id="logoutLink">Logout</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <main class="dashboard-container">
+
+          <!-- Dashboard Section -->
+          <section id="dashboardSection" class="section" style="display: block;">
+            <div class="dashboard-welcome-box">
+              <h2 id="welcomeMessage">Welcome</h2>
+              <script>
+                const username = sessionStorage.getItem('username');
+                document.getElementById('welcomeMessage').textContent = `Welcome, ${username}!`;
+              </script>              
+              <div class="logo-container">
+                <img src="images/logo.jpg" alt="Logo" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Profile Section -->
+          <section id="profileSection" class="section" style="display: none;">
+            <h3 class="section-title">Admin Profile</h3>
+            <div class="form-group">
+              <label for="adminPhoto">Profile Photo:</label><br>
+              <img id="adminPhotoPreview" src="default-profile.png" alt="Profile Photo" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;"><br><br>
+              <input type="file" id="adminPhoto" accept="image/*" style="display: none;">
+              <button type="button" id="uploadPhotoBtn" class="btn submit-btn">Change Photo</button>
+            </div>
+            <div class="form-group">
+              <label for="adminName">Name:</label>
+              <input type="text" id="adminName" disabled />
+            </div>
+            <div class="form-group">
+              <label for="adminID">ID:</label>
+              <input type="text" id="adminID" disabled />
+            </div>
+            <div class="form-group">
+              <label for="adminEmail">Email:</label>
+              <input type="email" id="adminEmail" disabled />
+            </div>
+            <div class="form-group">
+              <label for="adminPhone">Phone:</label>
+              <input type="text" id="adminPhone" disabled />
+            </div>
+            <div class="form-group">
+              <label for="adminGender">Gender:</label>
+              <input type="text" id="adminGender" disabled />
+            </div>
+            <div class="form-group">
+              <label for="adminDOB">Date of Birth:</label>
+              <input type="date" id="adminDOB" disabled />
+            </div>
+            <div class="form-group">
+              <label for="adminPassword">Password:</label>
+              <input type="password" id="adminPassword" disabled />
+            </div>
+            <div class="form-group" style="margin-top: 20px;">
+              <button id="editProfileBtn" class="btn submit-btn">Edit</button>
+              <button id="cancelEditBtn" class="btn cancel-btn" style="display: none;">Cancel</button>
+            </div>
+            <p id="profileError" style="display: none; color: red; margin-top: 10px;"></p>
+          </section>
+
+          <!-- Student Management Section -->
+          <section id="studentManagementSection" class="section" style="display: none;">
+            <h3 class="section-title">Manage Students</h3>
+            <p>Student list and actions go here.</p>
+          </section>
+
+          <!-- Faculty Management Section -->
+          <section id="facultyManagementSection" class="section" style="display: none;">
+            <h3 class="section-title">Manage Faculty</h3>
+            <p>Faculty list and actions go here.</p>
+          </section>
+
+          <!-- Courses Section -->
+          <section id="courseSection" class="section" style="display: none;">
+            <h3 class="section-title">Manage Courses</h3>
+            <div class="course-buttons" style="margin-bottom: 15px;">
+              <button class="btn" id="allCoursesBtn">All Courses</button>
+              <button class="btn" id="mandatoryCoursesBtn">Mandatory Courses</button>
+              <button class="btn" id="electiveCoursesBtn">Elective Courses</button>
+              <button class="btn" id="editCoursesBtn">Edit Courses</button>
+              <button id="addNewCourseBtn" class="btn submit-btn">Add New Course</button>
+            </div>
+            <div id="courseContentArea">
+              <!-- Content loaded dynamically -->
+            </div>
+
+            <!-- Add New Course Form -->
+            <div id="addCourseForm" class="section" style="display: none; margin-top: 20px;">
+              <div class="form-group">
+                <label for="newCourseID">Course ID:</label>
+                <input type="text" id="newCourseID" placeholder="Enter Course ID" />
+              </div>
+              <div class="form-group">
+                <label for="newCourseName">Course Name:</label>
+                <input type="text" id="newCourseName" placeholder="Enter Course Name" />
+              </div>
+              <div class="form-group">
+                <label for="newDescription">Course Description:</label>
+                <textarea id="newDescription" placeholder="Enter Course Description" style="height: 80px;"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="newSyllabus">Course Syllabus:</label>
+                <textarea id="newSyllabus" placeholder="Enter Course Syllabus" style="height: 100px;"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="courseType">Course Type:</label>
+                <select id="courseType">
+                  <option value="">Select course type</option>
+                  <option value="Elective">Elective</option>
+                  <option value="Mandatory">Mandatory</option>
+                </select>
+              </div>
+              <!-- New Branch Field -->
+              <div class="form-group">
+                <label for="courseBranch">Branch:</label>
+                <select id="courseBranch">
+                  <option value="">Select Branch</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Electrical Engineering">Electrical Engineering</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering</option>
+                  <option value="Civil Engineering">Civil Engineering</option>
+                  <option value="Electronics">Electronics</option>
+                  <!-- Add more branches as needed -->
+                </select>
+              </div>
+
+              <!-- Buttons -->
+              <div class="form-group" style="margin-top: 15px;">
+                <button id="submitNewCourseBtn" class="btn submit-btn">Add</button>
+                <button id="cancelNewCourseBtn" class="btn cancel-btn">Cancel</button>
+              </div>
+
+              <div id="courseError" style="color:red; display:none; margin-top: 10px;"></div>
+            </div>
+          </section>
+
+          <!-- Projects Section - Updated Implementation -->
+          <section id="projectsSection" class="section" style="display: none;">
+            <h3 class="section-title">Manage Projects</h3>
+            <button id="loadProjectsBtn" class="btn submit-btn">Load Projects</button>
+            <div id="projectsTableArea" class="table-container">
+              <template id="projectsTableTemplate">
+                <table class="projects-table">
+                  <thead>
+                    <tr>
+                      <th>Project ID</th>
+                      <th>Project Name</th>
+                      <th>Faculty</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="projectsTableBody"></tbody>
+                </table>
+              </template>
+              <p id="loadingMessage" class="loading" style="display: none;">Loading projects...</p>
+              <p id="noProjectsMessage" class="no-projects" style="display: none;">No projects found.</p>
+              <p id="errorMessage" class="error" style="display: none;">Error loading projects. Please try again.</p>
+            </div>
+          </section>
+
+        </main>
+
+        <footer class="footer">
+          &copy; 2025 Admin Portal. All rights reserved.
+        </footer>
+      </div>
+    </div> <!-- End of main-content-wrapper -->
+
+  </div> <!-- End of layout-container -->
+
+  <script src="adminscript.js"></script>
+</body>
+</html>

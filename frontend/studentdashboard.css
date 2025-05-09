@@ -1,0 +1,367 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Header (North Panel) */
+.header {
+  width: 100%;
+  background-color: #2b6cb0;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.header-subtitle {
+  font-size: 14px;
+}
+
+/* Layout Container */
+.layout-container {
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - 100px);
+  padding: 20px;
+}
+
+/* Sidebar (West Panel) */
+.sidebar {
+  width: 220px;
+  background-color: #2b6cb0;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Sidebar Navigation */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav ul,
+.sidebar-nav li {
+  list-style: none !important;
+  padding: 10px;
+  margin: 0;
+}
+
+.sidebar-nav a {
+  display: block;
+  width: 100%;
+  padding: 12px 18px;
+  background-color: #34495e;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s, color 0.3s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #16a085;
+  color: #1a365d;
+  transform: translateY(-2px);
+}
+
+.sidebar-nav a.active {
+  background-color: #234e8d;
+  color: #ffffff;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 20px;
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  flex: 1;
+}
+
+.welcome-message {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #2b6cb0;
+  border-left: 4px solid #2b6cb0;
+  padding-left: 10px;
+}
+
+/* Forms */
+.course-form .checkbox-group {
+  margin-bottom: 10px;
+}
+
+.course-form label {
+  margin-left: 8px;
+  font-size: 15px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+/* Form Inputs */
+input, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+}
+
+input[type="password"] {
+  letter-spacing: 2px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 18px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+/* Differentiated Button Styles */
+#editProfileBtn {
+  background-color: #007bff;
+  color: white;
+}
+
+#saveProfileBtn {
+  background-color: #28a745;
+  color: white;
+}
+
+#cancelEditBtn {
+  background-color: #dc3545;
+  color: white;
+  margin-left: 10px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Elective Courses Button Styles */
+.course-btn {
+  background-color: #2b6cb0;
+  color: white;
+  padding: 15px 30px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.course-btn:hover {
+  background-color: #234e8d;
+}
+
+/* Project List */
+.project-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.project-list li {
+  margin-bottom: 8px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+/* Dashboard Styling */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Profile Box Styling */
+.profile-box {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to the left */
+}
+
+/* Profile Photo Styling */
+#studentPhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Makes the photo circular */
+  object-fit: cover; /* Ensures the image is cropped to fit the circle */
+  margin-bottom: 10px; /* Adds space between the photo and button */
+  border: 4px solid #2b6cb0; /* Adds a border with the color of the header */
+}
+
+
+/* Change Profile Photo Button Styling */
+#uploadPhotoBtn {
+  background-color: #ff6f61; /* Warm coral color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* Centers the button */
+}
+
+#uploadPhotoBtn:hover {
+  background-color: #e65c53; /* Darker coral color on hover */
+  transform: translateY(-2px);
+}
+
+#uploadPhotoBtn:active {
+  transform: translateY(2px); /* Slight push effect when clicked */
+}
+
+/* Profile Info Styling */
+.profile-info {
+  width: 100%; /* Ensures the info section takes full width */
+  text-align: left; /* Aligns the text to the left */
+}
+
+/* Hide the File Input */
+#changePhotoInput {
+  display: none;
+}
+
+/* Accessibility: Focus States */
+a:focus,
+button:focus,
+input:focus {
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .sidebar-nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar-nav li {
+    margin-bottom: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .profile-box {
+    text-align: center; /* Centers content on smaller screens */
+  }
+
+  #studentPhoto {
+    margin: 0 auto;
+  }
+
+  #uploadPhotoBtn {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website with Login & Signup Form | Mahindra University</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght@48,400,0,0" />
+  <link rel="stylesheet" href="Loginstyle.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="images/logo.jpg" alt="logo" />
+        <h2>Mahindra University</h2>
+      </div>
+      <ul class="links">
+        <li><a href="#" id="about-link">About us</a></li>
+        <li><a href="#" id="login-btn">Login</a></li>
+        <li><a href="#" id="contact-link">Contact us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About popup -->
+  <div class="about-popup hidden">
+    <div class="about-box">
+      <h2>About Mahindra University</h2>
+      <p>Mahindra University is dedicated to academic excellence, interdisciplinary learning, and research-driven education.</p>
+      <p>It fosters innovation through cutting-edge technology and global collaborations.</p>
+      <p>The university empowers students with skills to thrive in a rapidly changing world.</p>
+      <br />
+      <p>For more information visit: <a href="https://www.mahindrauniversity.edu.in/about-us/" target="_blank">https://www.mahindrauniversity.edu.in/about-us/</a></p>
+      <button id="close-about">Close</button>
+    </div>
+  </div>
+
+  <!-- Contact popup -->
+  <div class="contact-popup hidden">
+    <div class="contact-box">
+      <h2>Contact Us</h2>
+      <p>Reach out to us through the following:</p>
+      <ul>
+        <li><strong>Address:</strong> Mahindra University, Survey No: 62/1A, Bahadurpally Jeedimetla, Hyderabad – 500043, Telangana, INDIA</li>
+        <li><a href="mailto:admissions@mahindrauniversity.edu.in">Gmail: admissions@mahindrauniversity.edu.in</a></li>
+        <li><a href="tel:+919618592999">Mobile: +91 9618592999</a></li>
+        <li><a href="https://wa.me/919121314154">WhatsApp: +91 9121314154</a></li>
+        <li>Landline: 040 – 67135100</li>
+        <li><a href="https://mahindrauniversity.edu.in" target="_blank">Website</a></li>
+      </ul>
+      <button id="close-contact">Close</button>
+    </div>
+  </div>
+
+  <!-- Login & Signup Form Popup -->
+  <div class="form-popup">
+    <!-- Login Form -->
+    <div class="form-box login" id="login-form">
+      <div class="form-content">
+        <h2>Welcome Back</h2>
+        <p>Please log in using your personal information to stay connected with us.</p>
+        <h2>LOGIN</h2>
+        <form method="POST" action="/login">
+          <div class="input-field">
+            <input type="text" required placeholder="Enter your email" name="email" />
+          </div>
+          <div class="input-field">
+            <input type="password" required placeholder="Enter your password" name="password" />
+          </div>
+          <button type="submit">Log In</button>
+        </form>
+        <div class="bottom-link">
+          Don't have an account?
+          <a href="#" id="signup-link">Signup</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form-box signup" id="signup-form" style="display: none;">
+      <div class="form-content">
+        <h2>Create Account</h2>
+        <p>To become a part of our community, please sign up using your personal information.</p>
+        <h2>SIGNUP</h2>
+        <form method="POST" action="/signup">
+          <div class="input-field">
+            <input type="text" name="roll_number" placeholder="roll_number" required />
+          </div>
+          <div class="input-field">
+            <input type="text" name="username" placeholder="username" required />
+          </div>
+          <div class="input-field">
+            <input type="email" name="email" placeholder="Email ID" required />
+          </div>
+          <div class="input-field">
+            <input type="password" name="password" placeholder="Password" required />
+          </div>
+          <div class="input-field">
+            <select name="role" required>
+              <option value="">Select Role</option>
+              <option value="student">Student</option>
+              <option value="faculty">Faculty</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <div class="bottom-link">
+          Already have an account?
+          <a href="#" id="login-link">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Signup Success/Error Message Popup -->
+  <div id="message-popup" class="message-popup hidden">
+    <p id="message-text"></p>
+    <button id="close-message" class="close-btn">OK</button>
+  </div>
+
+  <script src="loginscript.js"></script>
+</body>
+</html>

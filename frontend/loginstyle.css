@@ -1,0 +1,347 @@
+/* Importing Google font - Open Sans */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: url("images/hero-bg.jpg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+/* When About Us is open */
+.about-background {
+    background: url("images/about-us.jpg") center/cover no-repeat !important;
+}
+.login-background {
+    background: url("images/hero-bg.jpg") center/cover no-repeat !important;
+}
+/* When Contact Us is open */
+.contact-background {
+    background: url("images/contact-us.jpg") center/cover no-repeat !important;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    padding: 22px 0;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.navbar > * {
+    margin-left: 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.logo h2 {
+    color: #333;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin-left: 10px;
+}
+
+/* Navbar links */
+.links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.links a {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.links a:hover {
+    color: #007bff;
+}
+
+/* Form Popup (Login/Signup common styling) */
+.form-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center it */
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Corrected */
+    opacity: 0; /* To help with animation */
+}
+
+@keyframes slideToCenter {
+    0% {
+        transform: translate(-50%, -200%) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.form-popup h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-popup p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.form-popup input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-popup button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-popup button:hover {
+    background: #0056b3;
+}
+
+/* Hide form when other popups are open */
+.hidden {
+    display: none;
+}
+
+/* About Us Popup */
+.about-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1002; /* Corrected */
+    width: 90%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    color: rgb(6, 6, 6);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: none;
+    animation: rollFromTop 0.7s ease forwards;
+}
+
+@keyframes rollFromTop {
+    0% {
+        transform: translate(-50%, -200%) rotateX(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.about-popup.hidden {
+    display: none;
+}
+
+.about-popup h2 {
+    color: #000000;
+    font-size: 24px;
+}
+
+.about-popup p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.about-popup button {
+    background-color: #3100f4;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.about-popup button:hover {
+    background-color: #0400e0;
+}
+
+/* Contact Us Popup */
+.contact-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1003; /* Corrected */
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: none;
+    animation: rollFromTop 0.7s ease forwards;
+}
+
+.contact-popup.hidden {
+    display: none;
+}
+
+.contact-popup h2 {
+    margin-bottom: 15px;
+    color: #000000;
+    font-size: 24px;
+}
+
+.contact-popup ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.contact-popup li {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-popup a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-popup a:hover {
+    text-decoration: underline;
+}
+
+.contact-popup button {
+    background-color: #3100f4;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.contact-popup button:hover {
+    background-color: #0400e0;
+}
+
+/* Close Button */
+.close-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.close-btn:hover {
+    background: #0056b3;
+}
+
+/* Message Popup (for signup errors etc.) */
+.message-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px 30px;
+    z-index: 9999; /* Must be highest */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+}
+
+.message-popup p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.message-popup.hidden {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .logo h2 {
+        font-size: 1.4rem;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .form-popup, .about-popup, .contact-popup {
+        right: 50px;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 760px) {
+    .form-popup, .about-popup, .contact-popup {
+        width: 95%;
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

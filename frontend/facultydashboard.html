@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="facultydashboard.css" />
+</head>
+<body>
+
+  <div class="layout-container">
+    <div class="sidebar">
+      <ul class="sidebar-menu">
+        <li><a href="#" class="sidebar-item" data-target="dashboard">Dashboard</a></li>
+        <li><a href="#" class="sidebar-item" data-target="profile">Faculty Profile</a></li>
+        <li><a href="#" class="sidebar-item" data-target="courses-teaching">Courses Teaching</a></li>
+        <li><a href="#" class="sidebar-item" data-target="students-enrolled">Students Enrolled</a></li>
+        <li><a href="#" class="sidebar-item" data-target="projects">Projects</a></li>
+        <li><a href="#" class="sidebar-item" data-target="logout">Log Out</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <header class="header">
+        <h1 class="header-title">Faculty Dashboard</h1>
+      </header>
+
+      <div id="dashboard" class="section-content">
+        <div class="dashboard-welcome-box section-container">
+          <h2 id="welcomeMessage">Welcome,</h2>
+          <script>
+            const username = sessionStorage.getItem('username');
+            document.getElementById('welcomeMessage').textContent = `Welcome, ${username}!`;
+          </script>
+          <div class="logo-container">
+            <img src="images/logo.jpg" alt="Logo" class="logo" />
+          </div>
+        </div>
+      </div>
+
+      <main class="dashboard-container">
+        <div id="profile" class="section-content" style="display: none;">
+          <div class="section-container">
+            <h2>Faculty Profile</h2>
+
+            <!-- Profile Photo Section -->
+            <div class="profile-photo-container">
+              <img id="profile-photo" src="default-profile.jpg" alt="Profile Photo" class="circular-image">
+              <input type="file" id="photo-input" accept="image/*" style="display: none;">
+              <button class="change-photo-btn" onclick="document.getElementById('photo-input').click()">Change Profile Photo</button>
+            </div>            
+
+            <div id="profile-view">
+              <p><strong>Faculty ID:</strong> <span id="faculty-id">Loading...</span></p>
+              <p><strong>Name:</strong> <span id="faculty-name-profile">Loading...</span></p>
+              <p><strong>Email:</strong> <span id="faculty-email">Loading...</span></p>
+              <p><strong>Password:</strong> <span id="faculty-password">Loading...</span></p>
+              <p><strong>Department:</strong> <span id="faculty-department">Loading...</span></p>
+              <p><strong>Phone Number:</strong> <span id="faculty-phone">Loading...</span></p>
+              <p><strong>Date Joined:</strong> <span id="faculty-date-joined">Loading...</span></p>
+              <p><strong>Date of Birth:</strong> <span id="faculty-dob">Loading...</span></p>
+              <p><strong>Qualification:</strong> <span id="faculty-qualification">Loading...</span></p>
+              <p><strong>Experience:</strong> <span id="faculty-experience">Loading...</span></p>
+              <p><strong>Gender:</strong> <span id="faculty-gender">Loading...</span></p>
+            </div>
+
+            <!-- Edit Profile Button -->
+            <button id="edit-profile-btn" class="submit-btn">Edit Profile</button>
+
+            <!-- Edit Profile Form -->
+            <div id="edit-profile-form" style="display: none;">
+              <h3>Edit Profile</h3>
+              <form id="profile-edit-form">
+                <label for="edit-name">Name:</label>
+                <input type="text" id="edit-name" name="name" required>
+
+                <label for="edit-email">Email:</label>
+                <input type="email" id="edit-email" name="email" required>
+
+                <label for="edit-password">Password:</label>
+                <input type="password" id="edit-password" name="password" required>
+
+                <label for="edit-department">Department:</label>
+                <input type="text" id="edit-department" name="department" required>
+
+                <label for="edit-phone">Phone Number:</label>
+                <input type="text" id="edit-phone" name="phone" required>
+
+                <label for="edit-dob">Date of Birth:</label>
+                <input type="date" id="edit-dob" name="dob" required>
+
+                <label for="edit-qualification">Qualification:</label>
+                <input type="text" id="edit-qualification" name="qualification" required>
+
+                <label for="edit-experience">Experience:</label>
+                <input type="text" id="edit-experience" name="experience" required>
+
+                <label for="edit-gender">Gender:</label>
+                <select id="edit-gender" name="gender" required>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+
+                <div style="margin-top: 15px;">
+                  <button type="submit" class="submit-btn">Save Changes</button>
+                  <button type="button" class="submit-btn" id="cancel-edit-btn">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="courses-teaching" class="section-content" style="display:none;">
+          <div class="section-container">
+            <h2>Courses</h2>
+            <div class="courses-options">
+              <button id="view-teaching-courses-btn" class="submit-btn">Your Courses</button>
+              <button id="view-available-courses-btn" class="submit-btn">View Available Courses</button>
+            </div>
+
+            <div id="teaching-courses-list" style="display: none;">
+              <h3>Courses You're Teaching</h3>
+              <ul id="courses-list"></ul>
+            </div>
+
+            <div id="available-courses-list" style="display: none;">
+              <h3>Available Courses</h3>
+              <ul id="available-courses"></ul>
+              <h3>Send Request to Admin</h3>
+              <form id="request-course-form">
+                <label for="course-request">Select Course:</label>
+                <select id="course-request" required></select>
+                <button type="submit" class="submit-btn">Send Request</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="students-enrolled" class="section-content" style="display:none;">
+          <div class="section-container">
+            <h2>Students Enrolled in Your Courses</h2>
+            <ul id="students-list"></ul>
+          </div>
+        </div>
+
+        <div id="projects" class="section-content" style="display:none;">
+          <div class="section-container">
+            <h2>Projects You're Supervising</h2>
+            <div class="projects-nav">
+              <button id="view-ongoing-btn" class="submit-btn">View Ongoing Projects</button>
+              <button id="view-new-requests-btn" class="submit-btn">View New Requests</button>
+              <button id="view-all-btn" class="submit-btn">View All Available Projects</button>
+              <button id="add-new-project-btn" class="submit-btn">Add New Project</button>
+            </div>
+
+            <ul id="projects-list"></ul>
+
+            <div id="add-new-project-form" style="display: none;" class="section-container">
+              <h3>Add New Project</h3>
+              <form id="project-form">
+                <div class="form-group">
+                  <label for="projectId">Project ID:</label>
+                  <input type="text" id="projectId" name="projectId" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="projectName">Project Name:</label>
+                  <input type="text" id="projectName" name="projectName" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <textarea id="description" name="description" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="techStack">Tech Stack:</label>
+                  <input type="text" id="techStack" name="techStack" placeholder="e.g., Python, React, MySQL">
+                </div>
+
+                <div class="form-group">
+                  <label for="projectStatus">Project Status:</label>
+                  <select id="projectStatus" name="projectStatus" required>
+                    <option value="Ongoing">Ongoing</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                </div>
+                <div style="margin-top: 15px;">
+                  <button type="submit" class="submit-btn">Add Project</button>
+                  <button type="button" id="cancel-add-project-btn" class="submit-btn">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        &copy; 2025 Faculty Portal. All rights reserved.
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal for Changing Profile Photo -->
+  <div id="change-profile-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h3>Change Profile Photo</h3>
+      <input type="file" id="profile-photo-input" accept="image/*">
+      <button id="save-profile-photo-btn">Save</button>
+    </div>
+  </div>
+
+  <script src="facultyscript.js"></script>
+</body>
+</html>
