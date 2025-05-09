@@ -8,6 +8,7 @@ git clone https://github.com/siddhu1802/registration-of-elective-courses-or-proj
 open vs code and run npm start
 
 ### step 3:
+~ Folder Structure ~
 
 
 
